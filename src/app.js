@@ -1,34 +1,44 @@
-console.log('App.js is running!')
+console.log("App.js is running!");
 
-//JSX Javascript XML
+// if statements
+// ternary operrators
+// logical and operator
+
 var app = {
-    title: 'Indecision App',
-    sub_title: 'Put your hands in the life of a computer',
-   
+  title: "Indecision App",
+  sub_title: "Put your hands in the life of a computer"
 };
-var template = ( 
- <div>
+var template = (
+  <div>
     <h1>{app.title}</h1>
     <p>{app.sub_title}</p>
-</div>
-);
-
-var user = {
-    name: 'Vincent',
-    age: 28,
-    location: 'New Westminster'
-};
-var userName = 'Vincent Gauthier'
-var userAge = 26;
-var userLocation = 'New Westminster'
-var templateTwo = (
-  <div>
-  <h1>{user.name}</h1>
-  <p>Age: {user.age}</p>
-  <p>Location: {user.location}</p>
+    <ol>
+      <li>Item One</li>
+      <li>Item Two</li>
+    </ol>
   </div>
 );
 
-var appRoot = document.getElementById('app');
+var user = {
+  name: "Vincent",
+  age: 28
+};
+
+function getLocation(location) {
+  if (location) {
+    return location;
+  } else {
+    return "Unkown";
+  }
+}
+var templateTwo = (
+  <div>
+    <h1>{user.name}</h1>
+    <p>Age: {user.age}</p>
+    <p>Location: {getLocation(user.location)}</p>
+  </div>
+);
+
+var appRoot = document.getElementById("app");
 
 ReactDOM.render(templateTwo, appRoot);

@@ -1,58 +1,48 @@
-'use strict';
+"use strict";
 
-console.log('App.js is running!');
+console.log("App.js is running!");
 
-//JSX Javascript XML
+// if statements
+// ternary operrators
+// logical and operator
+
 var app = {
-    title: 'Indecision App',
-    sub_title: 'Put your hands in the life of a computer'
-
+  title: "Indecision App",
+  sub_title: "Put your hands in the life of a computer"
 };
 var template = React.createElement(
-    'div',
+  "div",
+  null,
+  React.createElement("h1", null, app.title),
+  React.createElement("p", null, app.sub_title),
+  React.createElement(
+    "ol",
     null,
-    React.createElement(
-        'h1',
-        null,
-        app.title
-    ),
-    React.createElement(
-        'p',
-        null,
-        app.sub_title
-    )
+    React.createElement("li", null, "Item One"),
+    React.createElement("li", null, "Item Two")
+  )
 );
 
 var user = {
-    name: 'Vincent',
-    age: 28,
-    location: 'New Westminster'
+  name: "Vincent",
+  age: 28
 };
-var userName = 'Vincent Gauthier';
-var userAge = 26;
-var userLocation = 'New Westminster';
+
+function getLocation(location) {
+  if (location) {
+    return location;
+  } else {
+    return "Unkown";
+  }
+}
 var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        user.name
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
-    )
+  "div",
+  null,
+  React.createElement("h1", null, user.name),
+  React.createElement("p", null, "Age: ", user.age),
+  React.createElement("p", null, "Location: ", getLocation(user.location))
 );
 
-var appRoot = document.getElementById('app');
+var appRoot = document.getElementById("app");
 
 ReactDOM.render(templateTwo, appRoot);
