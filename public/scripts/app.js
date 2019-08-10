@@ -24,15 +24,15 @@ var template = React.createElement(
 );
 
 var user = {
-  name: "Vincent",
+  name: "Vincenttt",
   age: 28
 };
 
 function getLocation(location) {
   if (location) {
-    return location;
+    return React.createElement("p", null, "Location: ", location);
   } else {
-    return "Unkown";
+    return undefined;
   }
 }
 var templateTwo = React.createElement(
@@ -40,9 +40,9 @@ var templateTwo = React.createElement(
   null,
   React.createElement("h1", null, user.name),
   React.createElement("p", null, "Age: ", user.age),
-  React.createElement("p", null, "Location: ", getLocation(user.location))
+  getLocation(user.location)
 );
 
 var appRoot = document.getElementById("app");
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
