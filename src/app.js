@@ -13,17 +13,22 @@ var template = (
 </div>
 );
 
-// var userName = 'Vincent Gauthier'
-// var userAge = 26;
-// var userLocation = 'New Westminster'
-// var templateTwo = (
-//   <div>
-//   <h1>{user.name}</h1>
-//   <p>Age: {user.age}</p>
-//   <p>Location: {user.location}</p>
-//   </div>
-// );
+var user = {
+    name: 'Vincent',
+    age: 28,
+    location: 'New Westminster'
+};
+var userName = 'Vincent Gauthier'
+var userAge = 26;
+var userLocation = 'New Westminster'
+var templateTwo = (
+  <div>
+  <h1>{user.name}</h1>
+  <p>Age: {user.age}</p>
+  <p>Location: {user.location}</p>
+  </div>
+);
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
