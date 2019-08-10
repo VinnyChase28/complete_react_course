@@ -3,56 +3,51 @@
 console.log('App.js is running!');
 
 //JSX Javascript XML
+var app = {
+  title: 'Indecision App',
+  sub_title: 'My First App'
 
+};
 var template = React.createElement(
-    'div',
+  'div',
+  null,
+  React.createElement(
+    'h1',
     null,
-    React.createElement(
-        'h1',
-        null,
-        'Indecision App'
-    ),
-    React.createElement(
-        'p',
-        null,
-        'This is some Info'
-    ),
-    React.createElement(
-        'ol',
-        null,
-        React.createElement(
-            'li',
-            null,
-            'Item One'
-        ),
-        React.createElement(
-            'li',
-            null,
-            'Item Two'
-        )
-    )
+    app.title
+  ),
+  React.createElement(
+    'p',
+    null,
+    app.sub_title
+  )
 );
 
+var userName = 'Vincent Gauthier';
+var userAge = 26;
+var userLocation = 'New Westminster';
 var templateTwo = React.createElement(
-    'div',
+  'div',
+  null,
+  React.createElement(
+    'h1',
     null,
-    React.createElement(
-        'h1',
-        null,
-        'Vincent Gauthier'
-    ),
-    React.createElement(
-        'p',
-        null,
-        '28'
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Location: New Westminster'
-    )
+    user.name
+  ),
+  React.createElement(
+    'p',
+    null,
+    'Age: ',
+    user.age
+  ),
+  React.createElement(
+    'p',
+    null,
+    'Location: ',
+    user.location
+  )
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
