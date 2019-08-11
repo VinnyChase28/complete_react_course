@@ -12,12 +12,14 @@ console.log("App.js is running!");
 //and <p>{app.options.length > 0 ? 'Here are your options:': 'No options'}</p>
 //reads as if the length is greater than 0, print here are your options, otherwise no options
 
-var app = {
+//changed var to const. assigning variables with const ensures defensive programming
+
+const app = {
   title: "Indecision App",
   subtitle: "Put your hands in the life of a computer",
   options: ["One", "Two"]
 };
-var template = (
+const template = (
   <div>
     <h1>{app.title}</h1>
     {app.subtitle && <p>{app.subtitle}</p>}
@@ -29,7 +31,7 @@ var template = (
   </div>
 );
 
-var user = {
+const user = {
   name: "Vincent",
   age: 28,
   location: "New West"
@@ -42,7 +44,7 @@ function getLocation(location) {
     return undefined;
   }
 }
-var templateTwo = (
+const templateTwo = (
   <div>
     <h1>{user.name ? user.name : "Anonymous"}</h1>
     {user.age && user.age >= 18 && <p>Age: {user.age}</p>}
@@ -50,6 +52,6 @@ var templateTwo = (
   </div>
 );
 
-var appRoot = document.getElementById("app");
+const appRoot = document.getElementById("app");
 
 ReactDOM.render(template, appRoot);
