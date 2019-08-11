@@ -8,7 +8,9 @@ console.log("App.js is running!");
 // render new p tag - if options.length > 0 "Here are your options" "No options"
 
 //make sure you remember {app.subtitle && <p>{app.subtitle}</p>}
+//reads as "if we have app.subtitle then render the p tag"
 //and <p>{app.options.length > 0 ? 'Here are your options:': 'No options'}</p>
+//reads as if the length is greater than 0, print here are your options, otherwise no options
 
 var app = {
   title: "Indecision App",
