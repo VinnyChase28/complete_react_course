@@ -1,5 +1,3 @@
-"use strict";
-
 function square(x) {
   return x * x;
 }
@@ -12,9 +10,7 @@ console.log(square(3));
 //     return x * x;
 // };
 
-var squareArrow = function squareArrow(x) {
-  return x * x;
-};
+const squareArrow = x => x * x;
 
 console.log(squareArrow(9));
 
@@ -32,7 +28,5 @@ console.log(squareArrow(9));
 
 //this is a function with shorthand syntax
 
-var getFirstName = function getFirstName(fullName) {
-  return fullName.split(" ")[0];
-};
+const getFirstName = fullName => fullName.split(" ")[0];
 console.log(getFirstName("Vincent Gauthier"));

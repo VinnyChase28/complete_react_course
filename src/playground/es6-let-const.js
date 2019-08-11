@@ -1,11 +1,13 @@
+//ew, this is var. dont use, ever
 var nameVar = "Vincent";
 var nameVar = "Mike";
 console.log("nameVar", nameVar);
 
+//let is kinda okay
 let nameLet = "Jen";
 nameLet = "Julie";
 console.log("nameLet", nameLet);
-
+//now we're talking
 const nameConst = "Frank";
 console.log("nameConst", nameConst);
 
