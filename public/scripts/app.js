@@ -19,51 +19,60 @@ console.log("App.js is running!");
 var app = {
   title: "Indecision App",
   subtitle: "Put your hands in the life of a computer",
-  options: ["One", "Two"]
+  options: []
 };
-var template = React.createElement(
-  "div",
-  null,
-  React.createElement("h1", null, app.title),
-  app.subtitle && React.createElement("p", null, app.subtitle),
-  React.createElement(
-    "p",
-    null,
-    app.options.length > 0 ? "Here are your options:" : "No options"
-  ),
-  React.createElement(
-    "ol",
-    null,
-    React.createElement("li", null, "Item One"),
-    React.createElement("li", null, "Item Tthreeeeeeee")
-  )
-);
 
-// this is the first repeatable user interaction in this course.
+var onFormSubmit = function onFormSubmit(e) {
+  e.preventDefault();
+  var option = e.target.elements.option.value;
+  if (option) {
+    app.options.push(option);
+    e.target.elements.option.value = "";
+    renderFormApp();
+  }
+};
 
-var count = 0;
-var addOne = function addOne() {
-  console.log("addOne");
+var removeAll = function removeAll() {
+  //app.options.length = 0; this was my answer which worked fine.
+  app.options = [];
+  renderFormApp();
 };
-var minusOne = function minusOne() {
-  console.log("minusOne");
-};
-var reset = function reset() {
-  console.log("reset");
-};
-var templateTwo = React.createElement(
-  "div",
-  null,
-  React.createElement("h1", null, "Count ", count),
-  React.createElement("button", { onClick: addOne }, "+1"),
-  React.createElement("button", { onClick: minusOne }, "-1"),
-  React.createElement("button", { onClick: reset }, "reset")
-);
 
-//Challenge
-//Make Button "-1" - setup minusOne function and register  - log 'minus One'
-//Make reset button 'reset' - setup reset function 'reset'
+//create 'Remove All' button above list
+// on click -> wipe the array -> rerender
 
 var appRoot = document.getElementById("app");
+var renderFormApp = function renderFormApp() {
+  var template = React.createElement(
+    "div",
+    null,
+    React.createElement("h1", null, app.title),
+    app.subtitle && React.createElement("p", null, app.subtitle),
+    React.createElement(
+      "p",
+      null,
+      app.options.length > 0 ? "Here are your options:" : "No options"
+    ),
+    React.createElement("p", null, app.options.length),
+    React.createElement(
+      "ol",
+      null,
+      React.createElement("li", null, "Item One"),
+      React.createElement("li", null, "Item Two")
+    ),
+    React.createElement(
+      "form",
+      { onSubmit: onFormSubmit },
+      React.createElement("input", { type: "text", name: "option" }),
+      React.createElement("button", null, "Add Option"),
+      React.createElement("button", { onClick: removeAll }, "Remove All")
+    )
+  );
+  ReactDOM.render(template, appRoot);
+};
 
-ReactDOM.render(templateTwo, appRoot);
+renderFormApp();
+
+//Create render function that render the new jsx
+//call it right away
+//call it after options array added to

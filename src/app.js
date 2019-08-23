@@ -17,45 +17,52 @@ console.log("App.js is running!");
 const app = {
   title: "Indecision App",
   subtitle: "Put your hands in the life of a computer",
-  options: ["One", "Two"]
+  options: []
 };
-const template = (
-  <div>
-    <h1>{app.title}</h1>
-    {app.subtitle && <p>{app.subtitle}</p>}
-    <p>{app.options.length > 0 ? "Here are your options:" : "No options"}</p>
-    <ol>
-      <li>Item One</li>
-      <li>Item Tthreeeeeeee</li>
-    </ol>
-  </div>
-);
 
-// this is the first repeatable user interaction in this course.
+const onFormSubmit = e => {
+  e.preventDefault();
+  const option = e.target.elements.option.value;
+  if (option) {
+    app.options.push(option);
+    e.target.elements.option.value = "";
+    renderFormApp();
+  }
+};
 
-let count = 0;
-const addOne = () => {
-  console.log("addOne");
+const removeAll = () => {
+  //app.options.length = 0; this was my answer which worked fine.
+  app.options = [];
+  renderFormApp();
 };
-const minusOne = () => {
-  console.log("minusOne");
-};
-const reset = () => {
-  console.log("reset");
-};
-const templateTwo = (
-  <div>
-    <h1>Count {count}</h1>
-    <button onClick={addOne}>+1</button>
-    <button onClick={minusOne}>-1</button>
-    <button onClick={reset}>reset</button>
-  </div>
-);
 
-//Challenge
-//Make Button "-1" - setup minusOne function and register  - log 'minus One'
-//Make reset button 'reset' - setup reset function 'reset'
+//create 'Remove All' button above list
+// on click -> wipe the array -> rerender
 
 const appRoot = document.getElementById("app");
+const renderFormApp = () => {
+  const template = (
+    <div>
+      <h1>{app.title}</h1>
+      {app.subtitle && <p>{app.subtitle}</p>}
+      <p>{app.options.length > 0 ? "Here are your options:" : "No options"}</p>
+      <p>{app.options.length}</p>
+      <ol>
+        <li>Item One</li>
+        <li>Item Two</li>
+      </ol>
+      <form onSubmit={onFormSubmit}>
+        <input type="text" name="option" />
+        <button>Add Option</button>
+        <button onClick={removeAll}>Remove All</button>
+      </form>
+    </div>
+  );
+  ReactDOM.render(template, appRoot);
+};
 
-ReactDOM.render(templateTwo, appRoot);
+renderFormApp();
+
+//Create render function that render the new jsx
+//call it right away
+//call it after options array added to
