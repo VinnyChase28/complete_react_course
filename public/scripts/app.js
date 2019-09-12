@@ -49,27 +49,51 @@ var renderFormApp = function renderFormApp() {
   var template = React.createElement(
     "div",
     null,
-    React.createElement("h1", null, app.title),
-    app.subtitle && React.createElement("p", null, app.subtitle),
+    React.createElement(
+      "h1",
+      null,
+      app.title
+    ),
+    app.subtitle && React.createElement(
+      "p",
+      null,
+      app.subtitle
+    ),
     React.createElement(
       "p",
       null,
       app.options.length > 0 ? "Here are your options:" : "No options"
     ),
-    React.createElement("p", null, app.options.length),
+    React.createElement(
+      "p",
+      null,
+      app.options.length
+    ),
     React.createElement(
       "ol",
       null,
-      app.options.map(function(options) {
-        return React.createElement("li", { key: options }, options);
+      app.options.map(function (options) {
+        return React.createElement(
+          "li",
+          { key: options },
+          options
+        );
       })
     ),
     React.createElement(
       "form",
       { onSubmit: onFormSubmit },
       React.createElement("input", { type: "text", name: "option" }),
-      React.createElement("button", null, "Add Option"),
-      React.createElement("button", { onClick: removeAll }, "Remove All")
+      React.createElement(
+        "button",
+        null,
+        "Add Option"
+      ),
+      React.createElement(
+        "button",
+        { onClick: removeAll },
+        "Remove All"
+      )
     ),
     React.createElement("ol", null)
   );
