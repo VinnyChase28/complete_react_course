@@ -42,6 +42,9 @@ var removeAll = function removeAll() {
 // on click -> wipe the array -> rerender
 
 var appRoot = document.getElementById("app");
+
+// const numbers = [55, 101, 1000];
+
 var renderFormApp = function renderFormApp() {
   var template = React.createElement(
     "div",
@@ -57,8 +60,9 @@ var renderFormApp = function renderFormApp() {
     React.createElement(
       "ol",
       null,
-      React.createElement("li", null, "Item One"),
-      React.createElement("li", null, "Item Two")
+      app.options.map(function(options) {
+        return React.createElement("li", { key: options }, options);
+      })
     ),
     React.createElement(
       "form",
@@ -66,7 +70,8 @@ var renderFormApp = function renderFormApp() {
       React.createElement("input", { type: "text", name: "option" }),
       React.createElement("button", null, "Add Option"),
       React.createElement("button", { onClick: removeAll }, "Remove All")
-    )
+    ),
+    React.createElement("ol", null)
   );
   ReactDOM.render(template, appRoot);
 };

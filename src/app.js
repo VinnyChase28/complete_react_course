@@ -40,6 +40,9 @@ const removeAll = () => {
 // on click -> wipe the array -> rerender
 
 const appRoot = document.getElementById("app");
+
+// const numbers = [55, 101, 1000];
+
 const renderFormApp = () => {
   const template = (
     <div>
@@ -48,14 +51,19 @@ const renderFormApp = () => {
       <p>{app.options.length > 0 ? "Here are your options:" : "No options"}</p>
       <p>{app.options.length}</p>
       <ol>
-        <li>Item One</li>
-        <li>Item Two</li>
+        {app.options.map(options => (
+          <li key={options}>{options}</li>
+        ))}
       </ol>
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option" />
         <button>Add Option</button>
         <button onClick={removeAll}>Remove All</button>
       </form>
+
+      <ol>
+        {/* map over app.options getting back an array of lis (set key and text) */}
+      </ol>
     </div>
   );
   ReactDOM.render(template, appRoot);
